@@ -14,6 +14,164 @@ export type Database = {
   }
   public: {
     Tables: {
+      biens: {
+        Row: {
+          adresse: string
+          charges: number
+          created_at: string
+          id: string
+          loyer_mensuel: number
+          nom: string
+          prix_achat: number
+          statut: string
+          surface: number
+          taxe_fonciere: number
+          travaux: number
+          type: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          adresse?: string
+          charges?: number
+          created_at?: string
+          id?: string
+          loyer_mensuel?: number
+          nom: string
+          prix_achat?: number
+          statut?: string
+          surface?: number
+          taxe_fonciere?: number
+          travaux?: number
+          type?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          adresse?: string
+          charges?: number
+          created_at?: string
+          id?: string
+          loyer_mensuel?: number
+          nom?: string
+          prix_achat?: number
+          statut?: string
+          surface?: number
+          taxe_fonciere?: number
+          travaux?: number
+          type?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      locataires: {
+        Row: {
+          bien_id: string | null
+          created_at: string
+          date_debut_bail: string | null
+          date_fin_bail: string | null
+          depot_garantie: number
+          email: string | null
+          id: string
+          loyer: number
+          nom: string
+          statut: string
+          telephone: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          bien_id?: string | null
+          created_at?: string
+          date_debut_bail?: string | null
+          date_fin_bail?: string | null
+          depot_garantie?: number
+          email?: string | null
+          id?: string
+          loyer?: number
+          nom: string
+          statut?: string
+          telephone?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          bien_id?: string | null
+          created_at?: string
+          date_debut_bail?: string | null
+          date_fin_bail?: string | null
+          depot_garantie?: number
+          email?: string | null
+          id?: string
+          loyer?: number
+          nom?: string
+          statut?: string
+          telephone?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "locataires_bien_id_fkey"
+            columns: ["bien_id"]
+            isOneToOne: false
+            referencedRelation: "biens"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      loyers: {
+        Row: {
+          bien_id: string
+          created_at: string
+          date_paiement: string | null
+          id: string
+          locataire_id: string | null
+          mois: string
+          montant: number
+          statut: string
+          user_id: string
+        }
+        Insert: {
+          bien_id: string
+          created_at?: string
+          date_paiement?: string | null
+          id?: string
+          locataire_id?: string | null
+          mois: string
+          montant?: number
+          statut?: string
+          user_id: string
+        }
+        Update: {
+          bien_id?: string
+          created_at?: string
+          date_paiement?: string | null
+          id?: string
+          locataire_id?: string | null
+          mois?: string
+          montant?: number
+          statut?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "loyers_bien_id_fkey"
+            columns: ["bien_id"]
+            isOneToOne: false
+            referencedRelation: "biens"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "loyers_locataire_id_fkey"
+            columns: ["locataire_id"]
+            isOneToOne: false
+            referencedRelation: "locataires"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profiles: {
         Row: {
           avatar_url: string | null

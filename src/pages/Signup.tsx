@@ -57,8 +57,8 @@ const Signup = () => {
       if (roleError) {
         toast({ title: "Erreur", description: "Impossible d'assigner le rôle.", variant: "destructive" });
       } else {
-        toast({ title: "Inscription réussie !", description: "Vérifiez votre email pour confirmer votre compte." });
-        navigate("/login");
+        toast({ title: "Inscription réussie !", description: "Bienvenue sur ImmoLink !" });
+        navigate("/dashboard");
       }
     }
     setLoading(false);
