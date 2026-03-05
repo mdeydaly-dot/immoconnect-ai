@@ -24,6 +24,24 @@ import InterventionsPage from "@/pages/dashboard/syndic/InterventionsPage";
 import ComptabiliteSyndicPage from "@/pages/dashboard/syndic/ComptabiliteSyndicPage";
 import DocumentsSyndicPage from "@/pages/dashboard/syndic/DocumentsSyndicPage";
 
+// Agent pages
+import MandatsPage from "@/pages/dashboard/agent/MandatsPage";
+import MatchingPage from "@/pages/dashboard/agent/MatchingPage";
+import ClientsPage from "@/pages/dashboard/agent/ClientsPage";
+import RapportsPage from "@/pages/dashboard/agent/RapportsPage";
+
+// Locataire pages
+import LogementPage from "@/pages/dashboard/locataire/LogementPage";
+import PaiementsPage from "@/pages/dashboard/locataire/PaiementsPage";
+import DemandesPage from "@/pages/dashboard/locataire/DemandesPage";
+import DocumentsLocatairePage from "@/pages/dashboard/locataire/DocumentsLocatairePage";
+
+// Intervenant pages
+import MissionsPage from "@/pages/dashboard/intervenant/MissionsPage";
+import PlanningPage from "@/pages/dashboard/intervenant/PlanningPage";
+import FacturationPage from "@/pages/dashboard/intervenant/FacturationPage";
+import ProfilMetierPage from "@/pages/dashboard/intervenant/ProfilMetierPage";
+
 // Shared pages
 import MessagesPage from "@/pages/dashboard/shared/MessagesPage";
 
@@ -59,8 +77,29 @@ const Dashboard = () => {
         <Route path="assemblees" element={<AssembleesPage />} />
         <Route path="interventions" element={<InterventionsPage />} />
 
+        {/* Agent routes */}
+        <Route path="mandats" element={<MandatsPage />} />
+        <Route path="matching" element={<MatchingPage />} />
+        <Route path="clients" element={<ClientsPage />} />
+        <Route path="rapports" element={<RapportsPage />} />
+
+        {/* Locataire routes */}
+        <Route path="logement" element={<LogementPage />} />
+        <Route path="paiements" element={<PaiementsPage />} />
+        <Route path="demandes" element={<DemandesPage />} />
+
+        {/* Intervenant routes */}
+        <Route path="missions" element={<MissionsPage />} />
+        <Route path="planning" element={<PlanningPage />} />
+        <Route path="facturation" element={<FacturationPage />} />
+        <Route path="profil" element={<ProfilMetierPage />} />
+
         {/* Shared routes (role-aware) */}
-        <Route path="documents" element={role === "syndic" ? <DocumentsSyndicPage /> : <DocumentsProprietairePage />} />
+        <Route path="documents" element={
+          role === "syndic" ? <DocumentsSyndicPage /> : 
+          role === "locataire" ? <DocumentsLocatairePage /> : 
+          <DocumentsProprietairePage />
+        } />
         <Route path="comptabilite" element={role === "syndic" ? <ComptabiliteSyndicPage /> : <ComptabilitePage />} />
         <Route path="messages" element={<MessagesPage />} />
       </Routes>
