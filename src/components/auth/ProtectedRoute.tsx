@@ -10,7 +10,7 @@ interface ProtectedRouteProps {
 }
 
 const ProtectedRoute = ({ children, allowedRoles }: ProtectedRouteProps) => {
-  const { user, role, loading } = useAuth();
+  const { user, role, loading, isDemo } = useAuth();
 
   if (loading) {
     return (
@@ -18,6 +18,12 @@ const ProtectedRoute = ({ children, allowedRoles }: ProtectedRouteProps) => {
         <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" />
       </div>
     );
+  }
+
+  // Allow demo mode through
+  if (isDemo && role) {
+    if (allowedRoles && !allowedRoles.includes(role)) return <Navigate to="/dashboard" replace />;
+    return <>{children}</>;
   }
 
   if (!user) return <Navigate to="/login" replace />;
