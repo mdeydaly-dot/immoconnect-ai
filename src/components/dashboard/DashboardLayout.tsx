@@ -2,10 +2,11 @@ import { ReactNode, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
+import DemoBanner from "@/components/dashboard/DemoBanner";
 import {
   Building2, LogOut, Menu, X, Home, Building, Key, Wrench, Landmark,
   LayoutDashboard, FileText, CreditCard, MessageSquare, Settings, Users, Search,
-  CalendarDays, ClipboardList, BookOpen, Hammer, BarChart3, BedDouble
+  CalendarDays, ClipboardList, BookOpen, Hammer, BarChart3, BedDouble, Briefcase
 } from "lucide-react";
 import { Database } from "@/integrations/supabase/types";
 
@@ -63,6 +64,15 @@ const roleNavItems: Record<AppRole, NavItem[]> = {
     { label: "Messagerie", href: "/dashboard/messages", icon: MessageSquare },
     { label: "Profil métier", href: "/dashboard/profil", icon: Settings },
   ],
+  conciergerie: [
+    { label: "Tableau de bord", href: "/dashboard", icon: LayoutDashboard },
+    { label: "Contrats", href: "/dashboard/contrats", icon: Briefcase },
+    { label: "Propriétaires", href: "/dashboard/proprietaires", icon: Users },
+    { label: "Intervenants", href: "/dashboard/intervenants-reseau", icon: Wrench },
+    { label: "Réservations", href: "/dashboard/conciergerie", icon: CalendarDays },
+    { label: "Messagerie", href: "/dashboard/messages", icon: MessageSquare },
+    { label: "Facturation", href: "/dashboard/facturation", icon: CreditCard },
+  ],
 };
 
 const roleLabels: Record<AppRole, { label: string; icon: React.ElementType }> = {
@@ -71,10 +81,11 @@ const roleLabels: Record<AppRole, { label: string; icon: React.ElementType }> = 
   proprietaire: { label: "Propriétaire", icon: Home },
   locataire: { label: "Locataire", icon: Key },
   intervenant: { label: "Intervenant", icon: Wrench },
+  conciergerie: { label: "Conciergerie", icon: BedDouble },
 };
 
 const DashboardLayout = ({ children }: { children: ReactNode }) => {
-  const { user, role, signOut } = useAuth();
+  const { user, role, signOut, isDemo } = useAuth();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const location = useLocation();
 
@@ -84,86 +95,94 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
   const roleInfo = roleLabels[role];
 
   return (
-    <div className="min-h-screen bg-background flex">
-      {/* Sidebar */}
-      <aside
-        className={`fixed inset-y-0 left-0 z-50 w-64 bg-card border-r border-border transform transition-transform duration-200 lg:translate-x-0 ${
-          sidebarOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
-      >
-        <div className="flex flex-col h-full">
-          {/* Logo */}
-          <div className="flex items-center justify-between p-4 border-b border-border">
-            <Link to="/" className="flex items-center gap-2">
-              <div className="rounded-lg bg-primary/10 p-1.5">
-                <Building2 className="h-5 w-5 text-primary" />
-              </div>
-              <span className="font-display text-lg font-bold">
-                Immo<span className="text-gradient-gold">Link</span>
-              </span>
-            </Link>
-            <button className="lg:hidden" onClick={() => setSidebarOpen(false)}>
-              <X className="h-5 w-5" />
-            </button>
-          </div>
-
-          {/* Role badge */}
-          <div className="px-4 py-3 border-b border-border">
-            <div className="flex items-center gap-2 text-sm">
-              <roleInfo.icon className="h-4 w-4 text-primary" />
-              <span className="font-medium text-foreground">{roleInfo.label}</span>
+    <div className="min-h-screen bg-background flex flex-col">
+      <DemoBanner />
+      <div className="flex flex-1">
+        {/* Sidebar */}
+        <aside
+          className={`fixed inset-y-0 left-0 z-50 w-64 bg-card border-r border-border transform transition-transform duration-200 lg:translate-x-0 ${
+            sidebarOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
+        >
+          <div className="flex flex-col h-full">
+            <div className="flex items-center justify-between p-4 border-b border-border">
+              <Link to="/" className="flex items-center gap-2">
+                <div className="rounded-lg bg-primary/10 p-1.5">
+                  <Building2 className="h-5 w-5 text-primary" />
+                </div>
+                <span className="font-display text-lg font-bold">
+                  Immo<span className="text-gradient-gold">Link</span>
+                </span>
+              </Link>
+              <button className="lg:hidden" onClick={() => setSidebarOpen(false)}>
+                <X className="h-5 w-5" />
+              </button>
             </div>
-            <p className="text-xs text-muted-foreground mt-1 truncate">{user?.email}</p>
-          </div>
 
-          {/* Nav */}
-          <nav className="flex-1 overflow-y-auto p-3 space-y-1">
-            {navItems.map((item) => {
-              const isActive = location.pathname === item.href;
-              return (
-                <Link
-                  key={item.href}
-                  to={item.href}
-                  onClick={() => setSidebarOpen(false)}
-                  className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${
-                    isActive
-                      ? "bg-primary/10 text-primary font-medium"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                  }`}
-                >
-                  <item.icon className="h-4 w-4" />
-                  {item.label}
+            <div className="px-4 py-3 border-b border-border">
+              <div className="flex items-center gap-2 text-sm">
+                <roleInfo.icon className="h-4 w-4 text-primary" />
+                <span className="font-medium text-foreground">{roleInfo.label}</span>
+              </div>
+              <p className="text-xs text-muted-foreground mt-1 truncate">
+                {isDemo ? "Mode démonstration" : user?.email}
+              </p>
+            </div>
+
+            <nav className="flex-1 overflow-y-auto p-3 space-y-1">
+              {navItems.map((item) => {
+                const isActive = location.pathname === item.href;
+                return (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    onClick={() => setSidebarOpen(false)}
+                    className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${
+                      isActive
+                        ? "bg-primary/10 text-primary font-medium"
+                        : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                    }`}
+                  >
+                    <item.icon className="h-4 w-4" />
+                    {item.label}
+                  </Link>
+                );
+              })}
+            </nav>
+
+            <div className="p-3 border-t border-border">
+              {isDemo ? (
+                <Link to="/signup">
+                  <Button variant="ghost" className="w-full justify-start">
+                    <Key className="h-4 w-4 mr-2" />
+                    Créer un compte
+                  </Button>
                 </Link>
-              );
-            })}
-          </nav>
-
-          {/* Logout */}
-          <div className="p-3 border-t border-border">
-            <Button variant="ghost" className="w-full justify-start" onClick={signOut}>
-              <LogOut className="h-4 w-4 mr-2" />
-              Déconnexion
-            </Button>
+              ) : (
+                <Button variant="ghost" className="w-full justify-start" onClick={signOut}>
+                  <LogOut className="h-4 w-4 mr-2" />
+                  Déconnexion
+                </Button>
+              )}
+            </div>
           </div>
+        </aside>
+
+        {sidebarOpen && (
+          <div className="fixed inset-0 bg-black/50 z-40 lg:hidden" onClick={() => setSidebarOpen(false)} />
+        )}
+
+        <div className="flex-1 lg:ml-64">
+          <header className="sticky top-0 z-30 bg-card/80 backdrop-blur border-b border-border px-4 py-3 flex items-center gap-3 lg:px-6">
+            <button className="lg:hidden" onClick={() => setSidebarOpen(true)}>
+              <Menu className="h-5 w-5" />
+            </button>
+            <h1 className="font-display text-lg font-semibold text-foreground">
+              {navItems.find((i) => i.href === location.pathname)?.label || "Tableau de bord"}
+            </h1>
+          </header>
+          <main className="p-4 lg:p-6">{children}</main>
         </div>
-      </aside>
-
-      {/* Overlay */}
-      {sidebarOpen && (
-        <div className="fixed inset-0 bg-black/50 z-40 lg:hidden" onClick={() => setSidebarOpen(false)} />
-      )}
-
-      {/* Main */}
-      <div className="flex-1 lg:ml-64">
-        <header className="sticky top-0 z-30 bg-card/80 backdrop-blur border-b border-border px-4 py-3 flex items-center gap-3 lg:px-6">
-          <button className="lg:hidden" onClick={() => setSidebarOpen(true)}>
-            <Menu className="h-5 w-5" />
-          </button>
-          <h1 className="font-display text-lg font-semibold text-foreground">
-            {navItems.find((i) => i.href === location.pathname)?.label || "Tableau de bord"}
-          </h1>
-        </header>
-        <main className="p-4 lg:p-6">{children}</main>
       </div>
     </div>
   );
