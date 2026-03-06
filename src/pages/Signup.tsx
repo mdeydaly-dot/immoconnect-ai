@@ -4,7 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Building2, UserPlus, Building, Home, Key, Wrench, Landmark } from "lucide-react";
+import { Building2, UserPlus, Building, Home, Key, Wrench, Landmark, BedDouble } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Database } from "@/integrations/supabase/types";
 
@@ -16,6 +16,7 @@ const roles: { value: AppRole; label: string; icon: React.ElementType; descripti
   { value: "proprietaire", label: "Propriétaire", icon: Home, description: "Suivez vos biens et loyers" },
   { value: "locataire", label: "Locataire", icon: Key, description: "Gérez votre logement" },
   { value: "intervenant", label: "Intervenant", icon: Wrench, description: "Recevez des missions" },
+  { value: "conciergerie", label: "Conciergerie", icon: BedDouble, description: "Gérez les locations courte durée" },
 ];
 
 const Signup = () => {

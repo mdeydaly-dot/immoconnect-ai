@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, Eye } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero pt-20">
-      {/* Ambient glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
 
@@ -16,7 +16,6 @@ const HeroSection = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-4xl mx-auto"
         >
-          {/* Badge */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -41,16 +40,20 @@ const HeroSection = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button variant="hero" size="lg" className="text-base px-8 py-6">
-              Commencer gratuitement
-              <ArrowRight className="h-5 w-5 ml-1" />
-            </Button>
-            <Button variant="hero-outline" size="lg" className="text-base px-8 py-6">
-              Voir la démo
-            </Button>
+            <Link to="/signup">
+              <Button variant="hero" size="lg" className="text-base px-8 py-6">
+                Commencer gratuitement
+                <ArrowRight className="h-5 w-5 ml-1" />
+              </Button>
+            </Link>
+            <Link to="/demo/proprietaire">
+              <Button variant="hero-outline" size="lg" className="text-base px-8 py-6">
+                <Eye className="h-5 w-5 mr-1" />
+                Explorer sans compte
+              </Button>
+            </Link>
           </div>
 
-          {/* Stats */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
