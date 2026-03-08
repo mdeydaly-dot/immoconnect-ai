@@ -10,7 +10,7 @@ const ProprietaireDashboard = () => (
 
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
       <StatCard title="Biens" value="4" icon={Home} subtitle="3 loués, 1 vacant" />
-      <StatCard title="Loyers perçus" value="5 200 €" icon={CreditCard} trend="+100% encaissement" />
+      <StatCard title="Loyers perçus" value="5 200 TND" icon={CreditCard} trend="+100% encaissement" />
       <StatCard title="Locataires" value="3" icon={Key} />
       <StatCard title="Locations courtes" value="1" icon={BedDouble} subtitle="12 réservations ce mois" />
     </div>
@@ -22,9 +22,9 @@ const ProprietaireDashboard = () => (
         </h3>
         <div className="space-y-3">
           {[
-            { bien: "T3 Paris 11e", locataire: "M. Dupont", montant: "1 200 €", statut: "Payé" },
-            { bien: "T2 Lyon 6e", locataire: "Mme Martin", montant: "800 €", statut: "En retard" },
-            { bien: "Studio Marseille", locataire: "M. Leblanc", montant: "550 €", statut: "Payé" },
+            { bien: "S+3 La Marsa", locataire: "M. Ben Ali", montant: "1 200 TND", statut: "Payé" },
+            { bien: "S+2 Ennasr", locataire: "Mme Trabelsi", montant: "800 TND", statut: "En retard" },
+            { bien: "Studio Lac 2", locataire: "M. Hammami", montant: "550 TND", statut: "Payé" },
           ].map((l, i) => (
             <div key={i} className="flex items-center justify-between p-3 rounded-lg bg-muted/30">
               <div>

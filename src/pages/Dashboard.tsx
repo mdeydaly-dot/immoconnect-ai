@@ -23,6 +23,7 @@ import AppelsFondsPage from "@/pages/dashboard/syndic/AppelsFondsPage";
 import AssembleesPage from "@/pages/dashboard/syndic/AssembleesPage";
 import InterventionsPage from "@/pages/dashboard/syndic/InterventionsPage";
 import ComptabiliteSyndicPage from "@/pages/dashboard/syndic/ComptabiliteSyndicPage";
+import DeclarationsFiscalesPage from "@/pages/dashboard/syndic/DeclarationsFiscalesPage";
 import DocumentsSyndicPage from "@/pages/dashboard/syndic/DocumentsSyndicPage";
 
 // Agent pages
@@ -83,6 +84,7 @@ const Dashboard = () => {
         <Route path="appels-fonds" element={<AppelsFondsPage />} />
         <Route path="assemblees" element={<AssembleesPage />} />
         <Route path="interventions" element={<InterventionsPage />} />
+        <Route path="declarations-fiscales" element={<DeclarationsFiscalesPage />} />
 
         {/* Agent routes */}
         <Route path="mandats" element={<MandatsPage />} />

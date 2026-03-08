@@ -108,13 +108,13 @@ const BiensPage = () => {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div className="glass-card rounded-xl p-5">
           <p className="text-sm text-muted-foreground">Patrimoine total</p>
-          <p className="text-2xl font-bold text-foreground">{(totalInvesti / 1000).toFixed(0)}k €</p>
+          <p className="text-2xl font-bold text-foreground">{(totalInvesti / 1000).toFixed(0)}k TND</p>
           <p className="text-xs text-muted-foreground">{biens.length} biens</p>
         </div>
         <div className="glass-card rounded-xl p-5">
           <p className="text-sm text-muted-foreground">Revenus mensuels</p>
-          <p className="text-2xl font-bold text-foreground">{loyerTotal.toLocaleString()} €</p>
-          <p className="text-xs text-muted-foreground">{loyerTotal * 12} €/an</p>
+           <p className="text-2xl font-bold text-foreground">{loyerTotal.toLocaleString()} TND</p>
+           <p className="text-xs text-muted-foreground">{loyerTotal * 12} TND/an</p>
         </div>
         <div className="glass-card rounded-xl p-5">
           <p className="text-sm text-muted-foreground">Rendement net moyen</p>
@@ -152,7 +152,7 @@ const BiensPage = () => {
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-3 gap-3 text-center">
-                  <div><p className="text-xs text-muted-foreground">Loyer</p><p className="font-semibold text-foreground">{Number(bien.loyer_mensuel) > 0 ? `${Number(bien.loyer_mensuel)} €` : "—"}</p></div>
+                  <div><p className="text-xs text-muted-foreground">Loyer</p><p className="font-semibold text-foreground">{Number(bien.loyer_mensuel) > 0 ? `${Number(bien.loyer_mensuel)} TND` : "—"}</p></div>
                   <div><p className="text-xs text-muted-foreground">Rend. brut</p><p className="font-semibold text-foreground">{calcRendBrut(bien) > 0 ? `${calcRendBrut(bien).toFixed(2)}%` : "—"}</p></div>
                   <div><p className="text-xs text-muted-foreground">Rend. net</p><p className={`font-semibold ${calcRendNet(bien) > 0 ? "text-primary" : "text-destructive"}`}>{calcRendNet(bien).toFixed(2)}%</p></div>
                 </div>
@@ -175,14 +175,14 @@ const BiensPage = () => {
                 <div className="space-y-4">
                   <h4 className="font-display font-semibold text-foreground flex items-center gap-2"><Euro className="h-4 w-4 text-primary" />Finances</h4>
                   <div className="space-y-2 text-sm">
-                    <div className="flex justify-between"><span className="text-muted-foreground">Prix d'achat</span><span>{Number(selectedBien.prix_achat).toLocaleString()} €</span></div>
-                    <div className="flex justify-between"><span className="text-muted-foreground">Travaux</span><span>{Number(selectedBien.travaux).toLocaleString()} €</span></div>
-                    <div className="flex justify-between"><span className="text-muted-foreground">Coût total</span><span className="font-semibold">{(Number(selectedBien.prix_achat) + Number(selectedBien.travaux)).toLocaleString()} €</span></div>
-                    <hr className="border-border" />
-                    <div className="flex justify-between"><span className="text-muted-foreground">Loyer mensuel</span><span>{Number(selectedBien.loyer_mensuel)} €</span></div>
-                    <div className="flex justify-between"><span className="text-muted-foreground">Charges</span><span>-{Number(selectedBien.charges)} €</span></div>
-                    <div className="flex justify-between"><span className="text-muted-foreground">Taxe foncière</span><span>{Number(selectedBien.taxe_fonciere)} €/an</span></div>
-                    <div className="flex justify-between"><span className="text-muted-foreground">Cash-flow</span><span className="font-semibold text-primary">{cashFlow(selectedBien).toFixed(0)} €/mois</span></div>
+                     <div className="flex justify-between"><span className="text-muted-foreground">Prix d'achat</span><span>{Number(selectedBien.prix_achat).toLocaleString()} TND</span></div>
+                     <div className="flex justify-between"><span className="text-muted-foreground">Travaux</span><span>{Number(selectedBien.travaux).toLocaleString()} TND</span></div>
+                     <div className="flex justify-between"><span className="text-muted-foreground">Coût total</span><span className="font-semibold">{(Number(selectedBien.prix_achat) + Number(selectedBien.travaux)).toLocaleString()} TND</span></div>
+                     <hr className="border-border" />
+                     <div className="flex justify-between"><span className="text-muted-foreground">Loyer mensuel</span><span>{Number(selectedBien.loyer_mensuel)} TND</span></div>
+                     <div className="flex justify-between"><span className="text-muted-foreground">Charges</span><span>-{Number(selectedBien.charges)} TND</span></div>
+                     <div className="flex justify-between"><span className="text-muted-foreground">Taxe foncière</span><span>{Number(selectedBien.taxe_fonciere)} TND/an</span></div>
+                     <div className="flex justify-between"><span className="text-muted-foreground">Cash-flow</span><span className="font-semibold text-primary">{cashFlow(selectedBien).toFixed(0)} TND/mois</span></div>
                   </div>
                 </div>
                 <div className="space-y-4">
@@ -198,7 +198,7 @@ const BiensPage = () => {
                     </div>
                     <div className="glass-card rounded-lg p-4 text-center">
                       <p className="text-xs text-muted-foreground">Cash-flow mensuel</p>
-                      <p className={`text-2xl font-bold ${cashFlow(selectedBien) > 0 ? "text-primary" : "text-destructive"}`}>{cashFlow(selectedBien).toFixed(0)} €</p>
+                      <p className={`text-2xl font-bold ${cashFlow(selectedBien) > 0 ? "text-primary" : "text-destructive"}`}>{cashFlow(selectedBien).toFixed(0)} TND</p>
                     </div>
                   </div>
                 </div>

@@ -65,7 +65,7 @@ const LoyersPage = () => {
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div><Label>Mois</Label><Input value={form.mois} onChange={e => setForm(f => ({...f, mois: e.target.value}))} placeholder="Mars 2026" /></div>
-                <div><Label>Montant (€)</Label><Input type="number" value={form.montant || ""} onChange={e => setForm(f => ({...f, montant: +e.target.value}))} /></div>
+                <div><Label>Montant (TND)</Label><Input type="number" value={form.montant || ""} onChange={e => setForm(f => ({...f, montant: +e.target.value}))} /></div>
               </div>
               <div>
                 <Label>Statut</Label>
@@ -85,9 +85,9 @@ const LoyersPage = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <StatCard title="Total loyers" value={`${totalMois.toLocaleString()} €`} icon={CreditCard} />
-        <StatCard title="Encaissés" value={`${paye.toLocaleString()} €`} icon={CheckCircle} trend={totalMois > 0 ? `${((paye / totalMois) * 100).toFixed(0)}%` : "0%"} />
-        <StatCard title="Impayés" value={`${impaye}`} icon={AlertTriangle} subtitle={`${(totalMois - paye).toLocaleString()} € en attente`} />
+        <StatCard title="Total loyers" value={`${totalMois.toLocaleString()} TND`} icon={CreditCard} />
+        <StatCard title="Encaissés" value={`${paye.toLocaleString()} TND`} icon={CheckCircle} trend={totalMois > 0 ? `${((paye / totalMois) * 100).toFixed(0)}%` : "0%"} />
+        <StatCard title="Impayés" value={`${impaye}`} icon={AlertTriangle} subtitle={`${(totalMois - paye).toLocaleString()} TND en attente`} />
         <StatCard title="Paiements" value={`${loyers.length}`} icon={TrendingUp} />
       </div>
 
@@ -112,7 +112,7 @@ const LoyersPage = () => {
                     </div>
                     <div className="flex items-center gap-3">
                       <div className="text-right">
-                        <p className="text-sm font-semibold text-foreground">{Number(p.montant)} €</p>
+                        <p className="text-sm font-semibold text-foreground">{Number(p.montant)} TND</p>
                       </div>
                       {p.statut !== "payé" && (
                         <Button size="sm" variant="outline" onClick={() => updateLoyer.mutate({ id: p.id, statut: "payé", date_paiement: new Date().toISOString() })}>

@@ -21,7 +21,7 @@ const ConciergerieDashboard = () => (
       <StatCard title="Biens gérés" value="12" icon={Home} />
       <StatCard title="Réservations actives" value="8" icon={CalendarDays} />
       <StatCard title="Taux d'occupation" value="87%" icon={CheckCircle} subtitle="Ce mois" />
-      <StatCard title="CA mensuel" value="4 850 €" icon={CreditCard} />
+      <StatCard title="CA mensuel" value="4 850 TND" icon={CreditCard} />
     </div>
 
     <Card className="glass-card border-border/50">

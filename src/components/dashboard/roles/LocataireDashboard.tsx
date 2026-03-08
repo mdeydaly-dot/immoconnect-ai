@@ -9,7 +9,7 @@ const LocataireDashboard = () => (
     </div>
 
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-      <StatCard title="Mon loyer" value="850 €" icon={CreditCard} subtitle="Prélèvement le 5" />
+      <StatCard title="Mon loyer" value="850 TND" icon={CreditCard} subtitle="Prélèvement le 5" />
       <StatCard title="Logement" value="T2 Paris 11e" icon={Home} />
       <StatCard title="Demandes" value="1" icon={ClipboardList} subtitle="En cours de traitement" />
       <StatCard title="Messages" value="3" icon={MessageSquare} subtitle="1 non lu" />
@@ -22,9 +22,9 @@ const LocataireDashboard = () => (
         </h3>
         <div className="space-y-3">
           {[
-            { mois: "Mars 2026", montant: "850 €", statut: "À venir" },
-            { mois: "Février 2026", montant: "850 €", statut: "Payé" },
-            { mois: "Janvier 2026", montant: "850 €", statut: "Payé" },
+            { mois: "Mars 2026", montant: "850 TND", statut: "À venir" },
+            { mois: "Février 2026", montant: "850 TND", statut: "Payé" },
+            { mois: "Janvier 2026", montant: "850 TND", statut: "Payé" },
           ].map((p, i) => (
             <div key={i} className="flex items-center justify-between p-3 rounded-lg bg-muted/30">
               <div>

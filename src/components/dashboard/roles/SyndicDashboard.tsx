@@ -11,7 +11,7 @@ const SyndicDashboard = () => (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
       <StatCard title="Immeubles gérés" value="8" icon={Building} />
       <StatCard title="Copropriétaires" value="124" icon={Users} subtitle="3 nouveaux ce mois" />
-      <StatCard title="Appels de fonds" value="42 800 €" icon={CreditCard} subtitle="78% recouvrés" />
+      <StatCard title="Appels de fonds" value="42 800 TND" icon={CreditCard} subtitle="78% recouvrés" />
       <StatCard title="Interventions" value="6" icon={Hammer} subtitle="2 urgentes" />
     </div>
 
@@ -22,8 +22,8 @@ const SyndicDashboard = () => (
         </h3>
         <div className="space-y-3">
           {[
-            { immeuble: "Résidence Les Lilas", probleme: "Fuite toiture - Lot 12", statut: "En cours" },
-            { immeuble: "Résidence Voltaire", probleme: "Panne ascenseur", statut: "Planifiée" },
+            { immeuble: "Résidence Les Jasmins", probleme: "Fuite toiture - Lot 12", statut: "En cours" },
+            { immeuble: "Résidence Ennasr", probleme: "Panne ascenseur", statut: "Planifiée" },
           ].map((i, idx) => (
             <div key={idx} className="flex items-center justify-between p-3 rounded-lg bg-muted/30">
               <div>
@@ -42,8 +42,8 @@ const SyndicDashboard = () => (
         </h3>
         <div className="space-y-3">
           {[
-            { immeuble: "Résidence Les Lilas", date: "15 Mars 2026", type: "AG Ordinaire" },
-            { immeuble: "Résidence Voltaire", date: "22 Mars 2026", type: "AG Extraordinaire" },
+            { immeuble: "Résidence Les Jasmins", date: "15 Mars 2026", type: "AG Ordinaire" },
+            { immeuble: "Résidence Ennasr", date: "22 Mars 2026", type: "AG Extraordinaire" },
           ].map((a, idx) => (
             <div key={idx} className="flex items-center justify-between p-3 rounded-lg bg-muted/30">
               <div>

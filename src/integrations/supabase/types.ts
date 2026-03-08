@@ -65,6 +65,107 @@ export type Database = {
         }
         Relationships: []
       }
+      declarations_fiscales: {
+        Row: {
+          created_at: string
+          date_echeance: string | null
+          date_generation: string | null
+          donnees: Json | null
+          frequence: string
+          id: string
+          immeuble_id: string | null
+          montant_retenues: number
+          montant_tib: number
+          montant_total: number
+          periode: string
+          statut: string
+          type: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          date_echeance?: string | null
+          date_generation?: string | null
+          donnees?: Json | null
+          frequence?: string
+          id?: string
+          immeuble_id?: string | null
+          montant_retenues?: number
+          montant_tib?: number
+          montant_total?: number
+          periode?: string
+          statut?: string
+          type?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          date_echeance?: string | null
+          date_generation?: string | null
+          donnees?: Json | null
+          frequence?: string
+          id?: string
+          immeuble_id?: string | null
+          montant_retenues?: number
+          montant_tib?: number
+          montant_total?: number
+          periode?: string
+          statut?: string
+          type?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "declarations_fiscales_immeuble_id_fkey"
+            columns: ["immeuble_id"]
+            isOneToOne: false
+            referencedRelation: "immeubles_syndic"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      immeubles_syndic: {
+        Row: {
+          adresse: string
+          created_at: string
+          id: string
+          nb_lots: number
+          nom: string
+          prix_ref_m2: number
+          superficie_communes: number
+          updated_at: string
+          user_id: string
+          ville: string
+        }
+        Insert: {
+          adresse?: string
+          created_at?: string
+          id?: string
+          nb_lots?: number
+          nom: string
+          prix_ref_m2?: number
+          superficie_communes?: number
+          updated_at?: string
+          user_id: string
+          ville?: string
+        }
+        Update: {
+          adresse?: string
+          created_at?: string
+          id?: string
+          nb_lots?: number
+          nom?: string
+          prix_ref_m2?: number
+          superficie_communes?: number
+          updated_at?: string
+          user_id?: string
+          ville?: string
+        }
+        Relationships: []
+      }
       locataires: {
         Row: {
           bien_id: string | null
@@ -121,6 +222,50 @@ export type Database = {
           },
         ]
       }
+      lots_copropriete: {
+        Row: {
+          created_at: string
+          id: string
+          immeuble_id: string
+          numero: string
+          proprietaire_email: string | null
+          proprietaire_nom: string
+          proprietaire_telephone: string | null
+          superficie: number
+          tantiemes: number
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          immeuble_id: string
+          numero: string
+          proprietaire_email?: string | null
+          proprietaire_nom?: string
+          proprietaire_telephone?: string | null
+          superficie?: number
+          tantiemes?: number
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          immeuble_id?: string
+          numero?: string
+          proprietaire_email?: string | null
+          proprietaire_nom?: string
+          proprietaire_telephone?: string | null
+          superficie?: number
+          tantiemes?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "lots_copropriete_immeuble_id_fkey"
+            columns: ["immeuble_id"]
+            isOneToOne: false
+            referencedRelation: "immeubles_syndic"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       loyers: {
         Row: {
           bien_id: string
@@ -172,6 +317,42 @@ export type Database = {
           },
         ]
       }
+      prestataires: {
+        Row: {
+          adresse: string | null
+          created_at: string
+          email: string | null
+          id: string
+          nom: string
+          rne: string | null
+          telephone: string | null
+          type_prestation: string
+          user_id: string
+        }
+        Insert: {
+          adresse?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          nom: string
+          rne?: string | null
+          telephone?: string | null
+          type_prestation?: string
+          user_id: string
+        }
+        Update: {
+          adresse?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          nom?: string
+          rne?: string | null
+          telephone?: string | null
+          type_prestation?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
@@ -204,6 +385,66 @@ export type Database = {
           user_id?: string
         }
         Relationships: []
+      }
+      transactions_fiscales: {
+        Row: {
+          created_at: string
+          date_paiement: string
+          description: string
+          id: string
+          immeuble_id: string
+          mois: string
+          montant_ht: number
+          montant_retenue: number
+          prestataire_id: string | null
+          taux_retenue: number
+          trimestre: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          date_paiement?: string
+          description?: string
+          id?: string
+          immeuble_id: string
+          mois?: string
+          montant_ht?: number
+          montant_retenue?: number
+          prestataire_id?: string | null
+          taux_retenue?: number
+          trimestre?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          date_paiement?: string
+          description?: string
+          id?: string
+          immeuble_id?: string
+          mois?: string
+          montant_ht?: number
+          montant_retenue?: number
+          prestataire_id?: string | null
+          taux_retenue?: number
+          trimestre?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "transactions_fiscales_immeuble_id_fkey"
+            columns: ["immeuble_id"]
+            isOneToOne: false
+            referencedRelation: "immeubles_syndic"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "transactions_fiscales_prestataire_id_fkey"
+            columns: ["prestataire_id"]
+            isOneToOne: false
+            referencedRelation: "prestataires"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       user_roles: {
         Row: {

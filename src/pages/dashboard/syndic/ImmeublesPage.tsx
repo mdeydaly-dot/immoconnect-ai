@@ -6,10 +6,10 @@ import { Progress } from "@/components/ui/progress";
 import StatCard from "@/components/dashboard/StatCard";
 
 const immeubles = [
-  { id: "1", nom: "Résidence Les Lilas", adresse: "12 rue des Lilas, 75020 Paris", lots: 24, coproprietaires: 20, charges: "4 200 €/mois", tauxRecouvrement: 82, interventionsEnCours: 2 },
-  { id: "2", nom: "Résidence Voltaire", adresse: "45 bd Voltaire, 75011 Paris", lots: 36, coproprietaires: 30, charges: "6 800 €/mois", tauxRecouvrement: 91, interventionsEnCours: 1 },
-  { id: "3", nom: "Le Clos Saint-Martin", adresse: "8 rue Saint-Martin, 92100 Boulogne", lots: 18, coproprietaires: 16, charges: "2 900 €/mois", tauxRecouvrement: 95, interventionsEnCours: 0 },
-  { id: "4", nom: "Résidence du Parc", adresse: "3 allée du Parc, 94200 Ivry", lots: 42, coproprietaires: 38, charges: "7 500 €/mois", tauxRecouvrement: 76, interventionsEnCours: 3 },
+  { id: "1", nom: "Résidence Les Jasmins", adresse: "12 rue des Jasmins, La Marsa", lots: 24, coproprietaires: 20, charges: "4 200 TND/mois", tauxRecouvrement: 82, interventionsEnCours: 2 },
+  { id: "2", nom: "Résidence Ennasr", adresse: "45 av. Hédi Nouira, Ennasr", lots: 36, coproprietaires: 30, charges: "6 800 TND/mois", tauxRecouvrement: 91, interventionsEnCours: 1 },
+  { id: "3", nom: "Immeuble Lac 2", adresse: "8 rue du Lac Léman, Lac 2", lots: 18, coproprietaires: 16, charges: "2 900 TND/mois", tauxRecouvrement: 95, interventionsEnCours: 0 },
+  { id: "4", nom: "Résidence Carthage", adresse: "3 rue Hannibal, Carthage", lots: 42, coproprietaires: 38, charges: "7 500 TND/mois", tauxRecouvrement: 76, interventionsEnCours: 3 },
 ];
 
 const ImmeublesPage = () => (

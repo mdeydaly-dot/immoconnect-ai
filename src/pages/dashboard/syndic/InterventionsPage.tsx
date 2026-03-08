@@ -5,11 +5,11 @@ import { Badge } from "@/components/ui/badge";
 import StatCard from "@/components/dashboard/StatCard";
 
 const interventions = [
-  { id: "1", titre: "Fuite toiture - Lot 12", immeuble: "Résidence Les Lilas", urgence: "haute", statut: "en cours", intervenant: "Plomberie Martin", dateCreation: "25/02/2026", devis: "1 800 €" },
-  { id: "2", titre: "Panne ascenseur", immeuble: "Résidence Voltaire", urgence: "haute", statut: "planifiée", intervenant: "Ascenseurs Pro", dateCreation: "01/03/2026", devis: "3 200 €" },
-  { id: "3", titre: "Remplacement interphone", immeuble: "Le Clos Saint-Martin", urgence: "moyenne", statut: "devis reçu", intervenant: "Elec Services", dateCreation: "20/02/2026", devis: "4 500 €" },
-  { id: "4", titre: "Ravalement façade sud", immeuble: "Résidence du Parc", urgence: "basse", statut: "en attente vote AG", intervenant: "—", dateCreation: "15/01/2026", devis: "45 000 €" },
-  { id: "5", titre: "Nettoyage parking", immeuble: "Résidence Voltaire", urgence: "basse", statut: "terminée", intervenant: "Clean Pro", dateCreation: "10/02/2026", devis: "600 €" },
+  { id: "1", titre: "Fuite toiture - Lot 12", immeuble: "Résidence Les Jasmins", urgence: "haute", statut: "en cours", intervenant: "Plomberie Sfaxienne", dateCreation: "25/02/2026", devis: "1 800 TND" },
+  { id: "2", titre: "Panne ascenseur", immeuble: "Résidence Ennasr", urgence: "haute", statut: "planifiée", intervenant: "Ascenseurs Pro", dateCreation: "01/03/2026", devis: "3 200 TND" },
+  { id: "3", titre: "Remplacement interphone", immeuble: "Immeuble Lac 2", urgence: "moyenne", statut: "devis reçu", intervenant: "Elec Medina", dateCreation: "20/02/2026", devis: "4 500 TND" },
+  { id: "4", titre: "Ravalement façade sud", immeuble: "Résidence Carthage", urgence: "basse", statut: "en attente vote AG", intervenant: "—", dateCreation: "15/01/2026", devis: "45 000 TND" },
+  { id: "5", titre: "Nettoyage parking", immeuble: "Résidence Ennasr", urgence: "basse", statut: "terminée", intervenant: "Clean Pro", dateCreation: "10/02/2026", devis: "600 TND" },
 ];
 
 const urgenceColors: Record<string, string> = {
@@ -40,7 +40,7 @@ const InterventionsPage = () => (
       <StatCard title="En cours" value={`${interventions.filter(i => i.statut === "en cours").length}`} icon={Hammer} />
       <StatCard title="Urgentes" value={`${interventions.filter(i => i.urgence === "haute").length}`} icon={AlertTriangle} />
       <StatCard title="Terminées" value={`${interventions.filter(i => i.statut === "terminée").length}`} icon={CheckCircle} subtitle="Ce mois" />
-      <StatCard title="Budget engagé" value="10 100 €" icon={Clock} subtitle="Hors ravalement" />
+      <StatCard title="Budget engagé" value="10 100 TND" icon={Clock} subtitle="Hors ravalement" />
     </div>
 
     <div className="space-y-3">
