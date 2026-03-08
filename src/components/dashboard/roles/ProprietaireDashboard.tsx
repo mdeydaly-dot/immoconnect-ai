@@ -10,7 +10,7 @@ const ProprietaireDashboard = () => (
 
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
       <StatCard title="Biens" value="4" icon={Home} subtitle="3 loués, 1 vacant" />
-      <StatCard title="Loyers perçus" value="5 200 €" icon={CreditCard} trend="+100% encaissement" />
+      <StatCard title="Loyers perçus" value="5 200 TND" icon={CreditCard} trend="+100% encaissement" />
       <StatCard title="Locataires" value="3" icon={Key} />
       <StatCard title="Locations courtes" value="1" icon={BedDouble} subtitle="12 réservations ce mois" />
     </div>

@@ -10,7 +10,7 @@ const IntervenantDashboard = () => (
 
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
       <StatCard title="Missions actives" value="3" icon={Hammer} subtitle="1 urgente" />
-      <StatCard title="Ce mois" value="2 400 €" icon={CreditCard} trend="+15% vs mois dernier" />
+      <StatCard title="Ce mois" value="2 400 TND" icon={CreditCard} trend="+15% vs mois dernier" />
       <StatCard title="RDV cette semaine" value="5" icon={CalendarDays} />
       <StatCard title="Note moyenne" value="4.8/5" icon={Star} subtitle="32 avis" />
     </div>

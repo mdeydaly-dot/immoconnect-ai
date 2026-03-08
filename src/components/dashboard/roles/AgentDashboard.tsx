@@ -12,7 +12,7 @@ const AgentDashboard = () => (
       <StatCard title="Mandats actifs" value="12" icon={FileText} trend="+2 ce mois" />
       <StatCard title="Clients" value="48" icon={Users} subtitle="18 acquéreurs, 30 vendeurs" />
       <StatCard title="Matchings IA" value="24" icon={Search} subtitle="6 en attente" />
-      <StatCard title="Commissions" value="18 400 €" icon={CreditCard} trend="+12% vs mois dernier" />
+      <StatCard title="Commissions" value="18 400 TND" icon={CreditCard} trend="+12% vs mois dernier" />
     </div>
 
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">

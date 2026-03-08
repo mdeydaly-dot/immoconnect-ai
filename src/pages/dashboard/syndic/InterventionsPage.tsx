@@ -40,7 +40,7 @@ const InterventionsPage = () => (
       <StatCard title="En cours" value={`${interventions.filter(i => i.statut === "en cours").length}`} icon={Hammer} />
       <StatCard title="Urgentes" value={`${interventions.filter(i => i.urgence === "haute").length}`} icon={AlertTriangle} />
       <StatCard title="Terminées" value={`${interventions.filter(i => i.statut === "terminée").length}`} icon={CheckCircle} subtitle="Ce mois" />
-      <StatCard title="Budget engagé" value="10 100 €" icon={Clock} subtitle="Hors ravalement" />
+      <StatCard title="Budget engagé" value="10 100 TND" icon={Clock} subtitle="Hors ravalement" />
     </div>
 
     <div className="space-y-3">

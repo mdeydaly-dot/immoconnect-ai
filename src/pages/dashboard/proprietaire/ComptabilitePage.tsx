@@ -42,12 +42,12 @@ const ComptabilitePage = () => {
               {revenus.map((r, i) => (
                 <div key={i} className="flex items-center justify-between p-3 rounded-lg bg-muted/30">
                   <span className="text-sm text-foreground">{r.categorie}</span>
-                  <span className="text-sm font-semibold text-primary">+{r.montant.toLocaleString()} €</span>
+                  <span className="text-sm font-semibold text-primary">+{r.montant.toLocaleString()} TND</span>
                 </div>
               ))}
               <div className="flex items-center justify-between p-3 rounded-lg bg-primary/10 border border-primary/20">
                 <span className="text-sm font-semibold text-foreground">Total revenus</span>
-                <span className="text-sm font-bold text-primary">{totalRevenus.toLocaleString()} €</span>
+                <span className="text-sm font-bold text-primary">{totalRevenus.toLocaleString()} TND</span>
               </div>
             </div>
           </CardContent>
@@ -60,12 +60,12 @@ const ComptabilitePage = () => {
               {depenses.map((d, i) => (
                 <div key={i} className="flex items-center justify-between p-3 rounded-lg bg-muted/30">
                   <span className="text-sm text-foreground">{d.categorie}</span>
-                  <span className="text-sm font-semibold text-destructive">-{d.montant.toLocaleString()} €</span>
+                  <span className="text-sm font-semibold text-destructive">-{d.montant.toLocaleString()} TND</span>
                 </div>
               ))}
               <div className="flex items-center justify-between p-3 rounded-lg bg-destructive/10 border border-destructive/20">
                 <span className="text-sm font-semibold text-foreground">Total dépenses</span>
-                <span className="text-sm font-bold text-destructive">{totalDepenses.toLocaleString()} €</span>
+                <span className="text-sm font-bold text-destructive">{totalDepenses.toLocaleString()} TND</span>
               </div>
             </div>
           </CardContent>

@@ -54,12 +54,12 @@ const ComptabiliteSyndicPage = () => {
                       {compte.recettes.map((r, i) => (
                         <div key={i} className="flex justify-between p-2 rounded bg-muted/30 text-sm">
                           <span className="text-muted-foreground">{r.label}</span>
-                          <span className="text-primary font-medium">+{r.montant.toLocaleString()} €</span>
+                          <span className="text-primary font-medium">+{r.montant.toLocaleString()} TND</span>
                         </div>
                       ))}
                       <div className="flex justify-between p-2 rounded bg-primary/10 border border-primary/20 text-sm font-semibold">
                         <span className="text-foreground">Total</span>
-                        <span className="text-primary">{rec.toLocaleString()} €</span>
+                        <span className="text-primary">{rec.toLocaleString()} TND</span>
                       </div>
                     </div>
                   </div>
@@ -69,19 +69,19 @@ const ComptabiliteSyndicPage = () => {
                       {compte.depenses.map((d, i) => (
                         <div key={i} className="flex justify-between p-2 rounded bg-muted/30 text-sm">
                           <span className="text-muted-foreground">{d.label}</span>
-                          <span className="text-destructive font-medium">-{d.montant.toLocaleString()} €</span>
+                          <span className="text-destructive font-medium">-{d.montant.toLocaleString()} TND</span>
                         </div>
                       ))}
                       <div className="flex justify-between p-2 rounded bg-destructive/10 border border-destructive/20 text-sm font-semibold">
                         <span className="text-foreground">Total</span>
-                        <span className="text-destructive">{dep.toLocaleString()} €</span>
+                        <span className="text-destructive">{dep.toLocaleString()} TND</span>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="mt-4 p-3 rounded-lg bg-muted/30 flex items-center justify-between">
                   <span className="text-sm text-muted-foreground">Trésorerie disponible</span>
-                  <span className="text-lg font-bold text-primary">{compte.tresorerie.toLocaleString()} €</span>
+                  <span className="text-lg font-bold text-primary">{compte.tresorerie.toLocaleString()} TND</span>
                 </div>
               </CardContent>
             </Card>

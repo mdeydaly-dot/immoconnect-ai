@@ -11,7 +11,7 @@ const SyndicDashboard = () => (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
       <StatCard title="Immeubles gérés" value="8" icon={Building} />
       <StatCard title="Copropriétaires" value="124" icon={Users} subtitle="3 nouveaux ce mois" />
-      <StatCard title="Appels de fonds" value="42 800 €" icon={CreditCard} subtitle="78% recouvrés" />
+      <StatCard title="Appels de fonds" value="42 800 TND" icon={CreditCard} subtitle="78% recouvrés" />
       <StatCard title="Interventions" value="6" icon={Hammer} subtitle="2 urgentes" />
     </div>
 

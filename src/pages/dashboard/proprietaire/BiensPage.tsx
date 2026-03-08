@@ -108,7 +108,7 @@ const BiensPage = () => {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div className="glass-card rounded-xl p-5">
           <p className="text-sm text-muted-foreground">Patrimoine total</p>
-          <p className="text-2xl font-bold text-foreground">{(totalInvesti / 1000).toFixed(0)}k €</p>
+          <p className="text-2xl font-bold text-foreground">{(totalInvesti / 1000).toFixed(0)}k TND</p>
           <p className="text-xs text-muted-foreground">{biens.length} biens</p>
         </div>
         <div className="glass-card rounded-xl p-5">
@@ -152,7 +152,7 @@ const BiensPage = () => {
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-3 gap-3 text-center">
-                  <div><p className="text-xs text-muted-foreground">Loyer</p><p className="font-semibold text-foreground">{Number(bien.loyer_mensuel) > 0 ? `${Number(bien.loyer_mensuel)} €` : "—"}</p></div>
+                  <div><p className="text-xs text-muted-foreground">Loyer</p><p className="font-semibold text-foreground">{Number(bien.loyer_mensuel) > 0 ? `${Number(bien.loyer_mensuel)} TND` : "—"}</p></div>
                   <div><p className="text-xs text-muted-foreground">Rend. brut</p><p className="font-semibold text-foreground">{calcRendBrut(bien) > 0 ? `${calcRendBrut(bien).toFixed(2)}%` : "—"}</p></div>
                   <div><p className="text-xs text-muted-foreground">Rend. net</p><p className={`font-semibold ${calcRendNet(bien) > 0 ? "text-primary" : "text-destructive"}`}>{calcRendNet(bien).toFixed(2)}%</p></div>
                 </div>
@@ -198,7 +198,7 @@ const BiensPage = () => {
                     </div>
                     <div className="glass-card rounded-lg p-4 text-center">
                       <p className="text-xs text-muted-foreground">Cash-flow mensuel</p>
-                      <p className={`text-2xl font-bold ${cashFlow(selectedBien) > 0 ? "text-primary" : "text-destructive"}`}>{cashFlow(selectedBien).toFixed(0)} €</p>
+                      <p className={`text-2xl font-bold ${cashFlow(selectedBien) > 0 ? "text-primary" : "text-destructive"}`}>{cashFlow(selectedBien).toFixed(0)} TND</p>
                     </div>
                   </div>
                 </div>

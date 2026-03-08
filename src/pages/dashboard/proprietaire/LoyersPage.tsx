@@ -65,7 +65,7 @@ const LoyersPage = () => {
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div><Label>Mois</Label><Input value={form.mois} onChange={e => setForm(f => ({...f, mois: e.target.value}))} placeholder="Mars 2026" /></div>
-                <div><Label>Montant (€)</Label><Input type="number" value={form.montant || ""} onChange={e => setForm(f => ({...f, montant: +e.target.value}))} /></div>
+                <div><Label>Montant (TND)</Label><Input type="number" value={form.montant || ""} onChange={e => setForm(f => ({...f, montant: +e.target.value}))} /></div>
               </div>
               <div>
                 <Label>Statut</Label>
@@ -112,7 +112,7 @@ const LoyersPage = () => {
                     </div>
                     <div className="flex items-center gap-3">
                       <div className="text-right">
-                        <p className="text-sm font-semibold text-foreground">{Number(p.montant)} €</p>
+                        <p className="text-sm font-semibold text-foreground">{Number(p.montant)} TND</p>
                       </div>
                       {p.statut !== "payé" && (
                         <Button size="sm" variant="outline" onClick={() => updateLoyer.mutate({ id: p.id, statut: "payé", date_paiement: new Date().toISOString() })}>
