@@ -6,7 +6,7 @@ import DemoBanner from "@/components/dashboard/DemoBanner";
 import {
   Building2, LogOut, Menu, X, Home, Building, Key, Wrench, Landmark,
   LayoutDashboard, FileText, CreditCard, MessageSquare, Settings, Users, Search,
-  CalendarDays, ClipboardList, BookOpen, Hammer, BarChart3, BedDouble, Briefcase
+  CalendarDays, ClipboardList, BookOpen, Hammer, BarChart3, BedDouble, Briefcase, Calculator
 } from "lucide-react";
 import { Database } from "@/integrations/supabase/types";
 
@@ -36,6 +36,7 @@ const roleNavItems: Record<AppRole, NavItem[]> = {
     { label: "Assemblées", href: "/dashboard/assemblees", icon: CalendarDays },
     { label: "Interventions", href: "/dashboard/interventions", icon: Hammer },
     { label: "Comptabilité", href: "/dashboard/comptabilite", icon: BarChart3 },
+    { label: "Déclarations fiscales", href: "/dashboard/declarations-fiscales", icon: Calculator },
     { label: "Documents", href: "/dashboard/documents", icon: BookOpen },
   ],
   proprietaire: [
