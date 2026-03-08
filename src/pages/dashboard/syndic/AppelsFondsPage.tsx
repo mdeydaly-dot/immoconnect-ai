@@ -27,9 +27,9 @@ const AppelsFondsPage = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <StatCard title="Total appelé (T1)" value={`${(totalAppel / 1000).toFixed(1)}k €`} icon={CreditCard} />
-        <StatCard title="Recouvré" value={`${(totalRecouvre / 1000).toFixed(1)}k €`} icon={CheckCircle} trend={`${((totalRecouvre / totalAppel) * 100).toFixed(0)}%`} />
-        <StatCard title="Impayés" value={`${((totalAppel - totalRecouvre) / 1000).toFixed(1)}k €`} icon={AlertTriangle} />
+        <StatCard title="Total appelé (T1)" value={`${(totalAppel / 1000).toFixed(1)}k TND`} icon={CreditCard} />
+        <StatCard title="Recouvré" value={`${(totalRecouvre / 1000).toFixed(1)}k TND`} icon={CheckCircle} trend={`${((totalRecouvre / totalAppel) * 100).toFixed(0)}%`} />
+        <StatCard title="Impayés" value={`${((totalAppel - totalRecouvre) / 1000).toFixed(1)}k TND`} icon={AlertTriangle} />
         <StatCard title="Échéance" value="31/03/2026" icon={Clock} subtitle="T1 2026" />
       </div>
 
@@ -51,9 +51,9 @@ const AppelsFondsPage = () => {
                   </Badge>
                 </div>
                 <div className="grid grid-cols-3 gap-4 text-center text-sm mb-3">
-                  <div><p className="text-muted-foreground text-xs">Appelé</p><p className="font-semibold text-foreground">{a.montant.toLocaleString()} €</p></div>
-                  <div><p className="text-muted-foreground text-xs">Recouvré</p><p className="font-semibold text-primary">{a.recouvre.toLocaleString()} €</p></div>
-                  <div><p className="text-muted-foreground text-xs">Restant</p><p className="font-semibold text-destructive">{(a.montant - a.recouvre).toLocaleString()} €</p></div>
+                  <div><p className="text-muted-foreground text-xs">Appelé</p><p className="font-semibold text-foreground">{a.montant.toLocaleString()} TND</p></div>
+                  <div><p className="text-muted-foreground text-xs">Recouvré</p><p className="font-semibold text-primary">{a.recouvre.toLocaleString()} TND</p></div>
+                  <div><p className="text-muted-foreground text-xs">Restant</p><p className="font-semibold text-destructive">{(a.montant - a.recouvre).toLocaleString()} TND</p></div>
                 </div>
                 <div>
                   <div className="flex justify-between text-xs mb-1">

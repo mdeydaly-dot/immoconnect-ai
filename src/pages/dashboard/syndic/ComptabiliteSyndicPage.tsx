@@ -31,10 +31,10 @@ const ComptabiliteSyndicPage = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <StatCard title="Recettes totales" value={`${(totalRecettes / 1000).toFixed(0)}k €`} icon={TrendingUp} />
-        <StatCard title="Dépenses totales" value={`${(totalDepenses / 1000).toFixed(0)}k €`} icon={TrendingDown} />
-        <StatCard title="Solde" value={`${((totalRecettes - totalDepenses) / 1000).toFixed(0)}k €`} icon={Euro} />
-        <StatCard title="Trésorerie" value={`${(totalTresorerie / 1000).toFixed(1)}k €`} icon={BarChart3} subtitle="Tous immeubles" />
+        <StatCard title="Recettes totales" value={`${(totalRecettes / 1000).toFixed(0)}k TND`} icon={TrendingUp} />
+        <StatCard title="Dépenses totales" value={`${(totalDepenses / 1000).toFixed(0)}k TND`} icon={TrendingDown} />
+        <StatCard title="Solde" value={`${((totalRecettes - totalDepenses) / 1000).toFixed(0)}k TND`} icon={Euro} />
+        <StatCard title="Trésorerie" value={`${(totalTresorerie / 1000).toFixed(1)}k TND`} icon={BarChart3} subtitle="Tous immeubles" />
       </div>
 
       <div className="space-y-6">

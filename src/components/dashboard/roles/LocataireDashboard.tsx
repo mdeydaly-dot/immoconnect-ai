@@ -22,9 +22,9 @@ const LocataireDashboard = () => (
         </h3>
         <div className="space-y-3">
           {[
-            { mois: "Mars 2026", montant: "850 €", statut: "À venir" },
-            { mois: "Février 2026", montant: "850 €", statut: "Payé" },
-            { mois: "Janvier 2026", montant: "850 €", statut: "Payé" },
+            { mois: "Mars 2026", montant: "850 TND", statut: "À venir" },
+            { mois: "Février 2026", montant: "850 TND", statut: "Payé" },
+            { mois: "Janvier 2026", montant: "850 TND", statut: "Payé" },
           ].map((p, i) => (
             <div key={i} className="flex items-center justify-between p-3 rounded-lg bg-muted/30">
               <div>

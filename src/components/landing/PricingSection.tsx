@@ -5,7 +5,7 @@ import { Check, Crown, Gem, Rocket, Star } from "lucide-react";
 const plans = [
   {
     name: "Gratuit",
-    price: "0€",
+    price: "0 TND",
     period: "/mois",
     description: "Pour découvrir la plateforme",
     icon: Rocket,
@@ -21,7 +21,7 @@ const plans = [
   },
   {
     name: "Premium",
-    price: "29€",
+    price: "89 TND",
     period: "/mois",
     description: "Pour les indépendants",
     icon: Star,
@@ -38,7 +38,7 @@ const plans = [
   },
   {
     name: "Gold",
-    price: "79€",
+    price: "249 TND",
     period: "/mois",
     description: "Pour les professionnels",
     icon: Crown,
@@ -56,7 +56,7 @@ const plans = [
   },
   {
     name: "Platinium",
-    price: "199€",
+    price: "599 TND",
     period: "/mois",
     description: "Pour les agences & groupes",
     icon: Gem,

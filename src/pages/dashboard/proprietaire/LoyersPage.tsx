@@ -85,9 +85,9 @@ const LoyersPage = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <StatCard title="Total loyers" value={`${totalMois.toLocaleString()} €`} icon={CreditCard} />
-        <StatCard title="Encaissés" value={`${paye.toLocaleString()} €`} icon={CheckCircle} trend={totalMois > 0 ? `${((paye / totalMois) * 100).toFixed(0)}%` : "0%"} />
-        <StatCard title="Impayés" value={`${impaye}`} icon={AlertTriangle} subtitle={`${(totalMois - paye).toLocaleString()} € en attente`} />
+        <StatCard title="Total loyers" value={`${totalMois.toLocaleString()} TND`} icon={CreditCard} />
+        <StatCard title="Encaissés" value={`${paye.toLocaleString()} TND`} icon={CheckCircle} trend={totalMois > 0 ? `${((paye / totalMois) * 100).toFixed(0)}%` : "0%"} />
+        <StatCard title="Impayés" value={`${impaye}`} icon={AlertTriangle} subtitle={`${(totalMois - paye).toLocaleString()} TND en attente`} />
         <StatCard title="Paiements" value={`${loyers.length}`} icon={TrendingUp} />
       </div>
 
